@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Feed } from '@/types/podcast'
+import { Feed } from '@/types/podcastFeedApi'
 
 interface PodcastFeedState {
   isLoading: boolean

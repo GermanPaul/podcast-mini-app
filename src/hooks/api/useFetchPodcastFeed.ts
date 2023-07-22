@@ -1,17 +1,6 @@
-import { TopPodcasts } from '@/types/podcast';
+import { TopPodcasts } from '@/types/podcastFeedApi';
 import { useQuery } from '@tanstack/react-query';
-
-interface FetchPodcastFeedInput {
-  limit: number
-  genre: number
-}
-
-interface PodcastFeed {
-  id: string
-  name: string
-  author: string
-  image: string
-}
+import { FetchPodcastFeedInput, PodcastFeed } from '@/types/podcastList'
 
 const getPodcastsFeed = async ({limit, genre}: FetchPodcastFeedInput) => {
   try {

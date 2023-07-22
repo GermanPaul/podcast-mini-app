@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { RootState, AppDispatch } from '@/store/store'
+import { useDispatch } from 'react-redux'
 import { useFetchPodcastFeed } from '@/hooks/api/useFetchPodcastFeed'
 import { setIsLoading } from '@/store/slices/podcast'
+import PodcastCard from '@/components/home/PodcastCard'
 
 const LIMIT = import.meta.env.VITE_PODCASTS_LIMIT
 const GENRE = import.meta.env.VITE_PODCASTS_GENRE_ID
@@ -18,7 +18,11 @@ const Home = () => {
   return <div>
     <h1>Home</h1>
     <div>Loading: {JSON.stringify(isLoading)}</div>
-    <div>Feed: {JSON.stringify(podcasts)}</div>
+    <div className='flex flex-wrap justify-center p-4'>
+      {podcasts?.map((podcast) => (
+        <PodcastCard podcast={podcast} />
+      ))}
+    </div>
   </div>
 }
 
