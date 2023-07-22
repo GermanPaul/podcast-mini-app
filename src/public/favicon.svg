@@ -1,0 +1,43 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="512.002"
+  height="512"
+  id="podcast"
+>
+  <defs>
+    <linearGradient
+      id="a"
+      x1=".5"
+      x2=".5"
+      y2="1"
+      gradientUnits="objectBoundingBox"
+    >
+      <stop offset="0" stop-color="#feae07"></stop>
+      <stop offset="1" stop-color="#fd2959"></stop>
+    </linearGradient>
+  </defs>
+  <g transform="translate(15590.002 21735)">
+    <rect
+      width="512"
+      height="512"
+      fill="url(#a)"
+      data-name="RECTANGLE ALBUM COVER"
+      rx="100"
+      transform="translate(-15590 -21735)"
+    ></rect>
+    <g fill="#fff" data-name="Group 14357">
+      <path
+        d="M-15438.471-21463.814v125.253a13.5 13.5 0 0 0 26.993 0v-125.253a13.5 13.5 0 0 0-26.993 0Z"
+        data-name="Path 14613"
+      ></path>
+      <path
+        d="M-15480.833-21324.911h29.713v-148.708a18.884 18.884 0 0 0 .211-2.155c0-64.156 51.783-116.344 115.425-116.344s115.418 52.188 115.418 116.344a18.778 18.778 0 0 0 .29 2.88v147.983h29.726c20.685 0 37.469-17.359 37.469-38.776v-77.55c0-17.662-11.44-32.541-27.057-37.223-1.438-85.23-70.77-154.151-155.835-154.151-85.088 0-154.43 68.923-155.853 154.18-15.594 4.692-26.994 19.559-26.994 37.206v77.536c0 21.405 16.782 38.778 37.487 38.778Z"
+        data-name="Path 14614"
+      ></path>
+      <path
+        d="M-15259.397-21463.814v125.253a13.5 13.5 0 1 0 26.99 0v-125.253a13.5 13.5 0 1 0-26.99 0Z"
+        data-name="Path 14615"
+      ></path>
+    </g>
+  </g>
+</svg>
