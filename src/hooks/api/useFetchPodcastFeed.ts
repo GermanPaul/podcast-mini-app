@@ -1,0 +1,40 @@
+import { TopPodcasts } from '@/types/podcast';
+import { useQuery } from '@tanstack/react-query';
+
+interface FetchPodcastFeedInput {
+  limit: number
+  genre: number
+}
+
+interface PodcastFeed {
+  id: string
+  name: string
+  author: string
+  image: string
+}
+
+const getPodcastsFeed = async ({limit, genre}: FetchPodcastFeedInput) => {
+  try {
+    const response = await fetch(`/api//toppodcasts/limit=${limit}/genre=${genre}/json`)
+    return await response.json() as TopPodcasts 
+  } catch {
+    throw new Error('Unable to fetch Top Podcasts list.')
+  }
+}
+
+const transformPodcastFeed: (rawTopPodcasts: TopPodcasts) => PodcastFeed[] = (rawTopPodcasts) => {
+  return rawTopPodcasts.feed.entry.map(entry => ({
+    id: entry.id.attributes['im:id'],
+    name: entry['im:name'].label,
+    author: entry['im:artist'].label,
+    image: entry['im:image'][entry['im:image'].length - 1].label
+  }))
+}
+
+export const useFetchPodcastFeed = (params: FetchPodcastFeedInput) => {
+  return useQuery({
+    queryKey: ['podcasts', params],
+    queryFn: () => getPodcastsFeed(params),
+    select: transformPodcastFeed
+  })
+}

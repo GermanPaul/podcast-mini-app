@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { useI18n } from '@/utils/hooks/useI18n';
+import { useI18n } from '@/hooks/useI18n';
 
 const Home = () => {
   const { t } = useI18n();

@@ -4,7 +4,7 @@ export interface TopPodcasts {
 
 export interface Feed {
   author: Author
-  entry: Entry
+  entry: Entry[]
   updated: Updated
   rights: FeedRights
   title: FeedTitle

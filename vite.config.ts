@@ -10,5 +10,14 @@ export default defineConfig({
     environment: 'happy-dom',
     setupFiles: '.vitest/setup',
     include: ['**/test.{ts,tsx}']
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://itunes.apple.com/us/rss/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
   }
 })

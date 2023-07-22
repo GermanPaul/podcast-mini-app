@@ -2,23 +2,23 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Feed } from '@/types/podcast'
 
 interface PodcastFeedState {
-  value: Feed[]
+  isLoading: boolean
 }
 
 const initialState: PodcastFeedState = {
-  value: []
+  isLoading: false
 }
 
 const podcastFeedSlice = createSlice({
   name: 'podcastFeed',
   initialState,
   reducers: {
-    setPodcastFeed: (state, action: PayloadAction<Feed[]>) => {
-      state.value = action.payload
+    setIsLoading: (state, action: PayloadAction<boolean>) => {
+      state = { ...state, isLoading: action.payload}
     }
   }
 })
 
-export const { setPodcastFeed } = podcastFeedSlice.actions
+export const { setIsLoading } = podcastFeedSlice.actions
 
 export default podcastFeedSlice.reducer
