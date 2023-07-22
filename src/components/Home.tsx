@@ -4,8 +4,8 @@ import { RootState, AppDispatch } from '@/store/store'
 import { useFetchPodcastFeed } from '@/hooks/api/useFetchPodcastFeed'
 import { setIsLoading } from '@/store/slices/podcast'
 
-const LIMIT = 5
-const GENRE = 1310
+const LIMIT = import.meta.env.VITE_PODCASTS_LIMIT
+const GENRE = import.meta.env.VITE_PODCASTS_GENRE_ID
 
 const Home = () => {
   const dispatch = useDispatch();

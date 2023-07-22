@@ -15,7 +15,21 @@ interface PodcastFeed {
 
 const getPodcastsFeed = async ({limit, genre}: FetchPodcastFeedInput) => {
   try {
-    const response = await fetch(`/api//toppodcasts/limit=${limit}/genre=${genre}/json`)
+    const developmentMode = import.meta.env.DEV
+    const apiUrl = import.meta.env.VITE_PODCASTS_API_URL
+    const proxyUrl = import.meta.env.VITE_CORS_PROXY
+
+    const path = `/toppodcasts/limit=${limit}/genre=${genre}/json`
+    let url: string
+
+    if (developmentMode) {
+      url = `/api${path}`
+    } else {
+      const targetUrl = `${apiUrl}${path}`
+      url = proxyUrl ? `${proxyUrl}?${encodeURIComponent(targetUrl)}` : targetUrl
+    }
+
+    const response = await fetch(`${url}/toppodcasts/limit=${limit}/genre=${genre}/json`)
     return await response.json() as TopPodcasts 
   } catch {
     throw new Error('Unable to fetch Top Podcasts list.')
