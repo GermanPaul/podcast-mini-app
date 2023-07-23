@@ -17,6 +17,15 @@ Install dependencies.
 ```bash
 pnpm install
 ```
+
+Create a new `.env` file in the root directory and save the desired configuration variables.
+```bash
+VITE_PODCASTS_API_URL=https://itunes.apple.com
+VITE_CORS_PROXY=https://corsproxy.io
+VITE_PODCASTS_GENRE_ID=1310
+VITE_PODCASTS_LIMIT=100
+```
+
 ### Run
 Serve with hot reload at <http://localhost:5173>.
 
