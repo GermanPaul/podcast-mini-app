@@ -1,6 +1,7 @@
 import Home from '@/components/home/Home'
 import Podcast from '@/components/podcast/Podcast'
 import Episode from '@/components/episode/Episode'
+import { Navigate } from 'react-router-dom'
 
 const routes = [
   {
@@ -14,6 +15,10 @@ const routes = [
   {
     path: '/podcast/:podcastId/episode/:episodeId',
     element: <Episode />
+  },
+  {
+    path: '*',
+    element: (<Navigate to="/" />)
   }
 ]
 
