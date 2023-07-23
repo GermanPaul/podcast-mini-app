@@ -1,6 +1,7 @@
 import React from 'react'
 import { PodcastDetailsItem } from '@/types/podcastDetailsApi'
 import { msToTime } from '@/utils'
+import { useI18n } from '@/hooks/useI18n'
 
 import { Link } from 'react-router-dom'
 
@@ -10,15 +11,17 @@ interface ItemListProps {
 }
 
 const ItemList = ({ items, podcastId }: ItemListProps) => {
+  const { t } = useI18n()
+
   return <div className='px-4'>
-    <div className='shadow-md p-3 mb-2 text-lg font-bold'>Episodes: {items.length}</div>
+    <div className='shadow-md p-3 mb-2 text-lg font-bold'>{t('ITEM_EPISODES')}: {items.length}</div>
     <div className='shadow-md p-3'>
       <table className='w-full'>
         <thead className='border-b-2'>
           <tr>
-            <th className='w-2/3 text-left'>Title</th>
-            <th className='w-1/6 text-left'>Date</th>
-            <th className='w-1/6 text-left'>Duration</th>
+            <th className='w-2/3 text-left'>{t('ITEM_TITLE')}</th>
+            <th className='w-1/6 text-left'>{t('ITEM_DATE')}</th>
+            <th className='w-1/6 text-left'>{t('ITEM_DURATION')}</th>
           </tr>
         </thead>
         <tbody className='[&>*:nth-child(odd)]:bg-gray-100'>

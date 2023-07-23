@@ -1,4 +1,14 @@
 {
-  "title": "Podcaster",
-  "search": "Filter podcasts..."
+  "EPISODE_ERROR": "Unable to fetch Episode details.",
+  "HEADER_LOADING": "Loading",
+  "HEADER_TITLE": "Podcaster",
+  "HOME_ERROR": "Unable to fetch Top Podcasts list.",
+  "HOME_SEARCH": "Filter podcasts...",
+  "ITEM_DATE": "Date",
+  "ITEM_DURATION": "Duration",
+  "ITEM_EPISODES": "Episodes",
+  "ITEM_TITLE": "Title",
+  "PODCAST_BY": "By",
+  "PODCAST_DESCRIPTION": "Description",
+  "PODCAST_ERROR": "Unable to fetch Podcast details."
 }

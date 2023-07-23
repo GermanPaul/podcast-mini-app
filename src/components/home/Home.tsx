@@ -13,8 +13,8 @@ const LIMIT = import.meta.env.VITE_PODCASTS_LIMIT
 const GENRE = import.meta.env.VITE_PODCASTS_GENRE_ID
 
 const Home = () => {
-  const { t } = useI18n();
-  const dispatch = useDispatch();
+  const { t } = useI18n()
+  const dispatch = useDispatch()
 
   const { isLoading, data: podcasts, isError } = useFetchPodcastFeed({ limit: LIMIT, genre: GENRE })
   const [searchValue, setSearchValue] = useState('')
@@ -50,7 +50,7 @@ const Home = () => {
 
   if (isError) {
     return <div className='p-3 text-lg'>
-      Unable to fetch Top Podcasts list.
+      {t('HOME_ERROR')}
     </div>
   }
 
@@ -77,7 +77,7 @@ const Home = () => {
         ref={searchInputRef}
         value={searchValue}
         onChange={handleSearchChange}
-        placeholder={t('search')} 
+        placeholder={t('HOME_SEARCH')} 
         className='border w-80 h-10 p-2'
       />
     </div>

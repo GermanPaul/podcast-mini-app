@@ -4,13 +4,15 @@ import { useDispatch } from 'react-redux'
 import { setIsLoading } from '@/store/slices/podcast'
 import { useFetchPodcastDetails } from '@/hooks/api/useFetchPodcastDetails'
 import { PodcastDetails } from '@/types/podcastDetailsApi'
+import { useI18n } from '@/hooks/useI18n'
 
 import PodcastInfo from '@/components/podcast/PodcastInfo'
 import EpisodeDetails from '@/components/episode/EpisodeDetails'
 import Skeleton from 'react-loading-skeleton'
 
 const Episode = () => {
-  const dispatch = useDispatch();
+  const { t } = useI18n()
+  const dispatch = useDispatch()
   const { podcastId, episodeId } = useParams<{ podcastId: string, episodeId: string }>()
   const { isLoading, data: podcastDetails, isError } = useFetchPodcastDetails(podcastId as string)
 
@@ -20,7 +22,7 @@ const Episode = () => {
 
   if (isError) {
     return <div className='p-3 text-lg'>
-      Unable to fetch Episode details.
+      {t('EPISODE_ERROR')}
     </div>
   }
 
@@ -41,7 +43,7 @@ const Episode = () => {
 
   if (episodeData.length === 0) {
     return <div className='p-3 text-lg'>
-      Unable to fetch Episode details.
+      {t('EPISODE_ERROR')}
     </div>
   }
 
