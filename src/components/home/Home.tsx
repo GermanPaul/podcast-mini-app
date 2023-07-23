@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { useFetchPodcastFeed } from '@/hooks/api/useFetchPodcastFeed'
 import { setIsLoading } from '@/store/slices/podcast'
@@ -6,6 +6,8 @@ import { useI18n } from '@/hooks/useI18n';
 
 import PodcastCard from '@/components/home/PodcastCard'
 import { PodcastFeed } from '@/types/podcastList';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const LIMIT = import.meta.env.VITE_PODCASTS_LIMIT
 const GENRE = import.meta.env.VITE_PODCASTS_GENRE_ID
@@ -18,6 +20,7 @@ const Home = () => {
   const [searchValue, setSearchValue] = useState('')
   const [filteredPodcasts, setFilteredPodcasts] = useState<PodcastFeed[]>([])
   const [matches, setMatches] = useState(0)
+  const searchInputRef = useRef<HTMLElement>(null);
 
   const handleSearchChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
@@ -35,17 +38,37 @@ const Home = () => {
       setFilteredPodcasts(filteredData)
       setMatches(filteredData.length)
     }
-  }, [searchValue])
+  }, [searchValue, podcasts])
 
   useEffect(() => {
     dispatch(setIsLoading(isLoading))
   }, [isLoading])
 
-  return <div className=''>
+  useEffect(() => {
+    searchInputRef.current?.focus()
+  }, [isLoading])
+
+  if (isLoading) {
+    return <div>
+      <div className='flex justify-end p-4'>
+        <Skeleton width='20rem' height='2.5rem' />
+      </div>
+      <div className='flex flex-wrap justify-center p-4'>
+        {
+          [...Array(20)].map((_, index) => (
+            <Skeleton className='m-2' key={`skeleton-${index}`} width='20rem' height='15rem' />
+          ))
+        }
+      </div>
+    </div>
+  }
+
+  return <div>
     <div className='flex justify-end p-4'>
       <div className='inline-flex border p-2 mr-2 rounded-lg bg-sky-500 text-white'>{matches}</div>
       <input 
         type='text'
+        ref={searchInputRef}
         value={searchValue}
         onChange={handleSearchChange}
         placeholder={t('search')} 
