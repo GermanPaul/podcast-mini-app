@@ -1,4 +1,5 @@
 # Podcast mini-app
+Mini app for listening to podcasts.
 
 ## Getting Started
 

@@ -1,6 +1,6 @@
 {
   "name": "podcast-mini-app",
-  "description": "Mini app to listen podcasts.",
+  "description": "Mini app for listening to podcasts.",
   "version": "0.1.0",
   "private": true,
   "author": {
