@@ -1,6 +1,6 @@
 import Home from '@/components/home/Home'
 import Podcast from '@/components/podcast/Podcast'
-import Episode from '@/components/Episode'
+import Episode from '@/components/episode/Episode'
 
 const routes = [
   {
