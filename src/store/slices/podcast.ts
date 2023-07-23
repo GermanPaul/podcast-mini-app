@@ -6,7 +6,7 @@ interface PodcastFeedState {
 }
 
 const initialState: PodcastFeedState = {
-  isLoading: false
+  isLoading: true
 }
 
 const podcastFeedSlice = createSlice({
@@ -14,7 +14,7 @@ const podcastFeedSlice = createSlice({
   initialState,
   reducers: {
     setIsLoading: (state, action: PayloadAction<boolean>) => {
-      state = { ...state, isLoading: action.payload}
+      state.isLoading = action.payload
     }
   }
 })

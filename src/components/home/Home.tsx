@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useDispatch } from 'react-redux'
-import { useFetchPodcastFeed } from '@/hooks/api/useFetchPodcastFeed'
 import { setIsLoading } from '@/store/slices/podcast'
+import { useFetchPodcastFeed } from '@/hooks/api/useFetchPodcastFeed'
 import { useI18n } from '@/hooks/useI18n'
 
 import PodcastCard from '@/components/home/PodcastCard'
