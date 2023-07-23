@@ -12,8 +12,8 @@ const PodcastCard = ({ podcast }: PodcastCardProps) => {
       <img className='mx-auto rounded-full -mb-20 w-44 h-44' src={podcast.image} alt={podcast.name} loading='lazy' />
     </div>
     <div className='block border border-t-0 px-2 pt-24 pb-5'>
-      <div className='uppercase font-semibold'>{podcast.name}</div>
-      <div>{podcast.author}</div>
+      <div data-testid='podcast-name' className='uppercase font-semibold'>{podcast.name}</div>
+      <div data-testid='podcast-author'>{podcast.author}</div>
     </div>
   </Link>
 }

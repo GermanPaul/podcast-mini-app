@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<PodcastInfo /> > render the component 1`] = `
+<body>
+  <div>
+    <div
+      class="p-4 shadow-md"
+    >
+      <img
+        alt="My first podcast"
+        class="mx-auto mb-4 rounded-md w-72 h-72"
+        loading="lazy"
+        src="https://image.provider/rookie/my-first-podcast.jpg"
+      />
+      <div
+        class="my-3 mx-4"
+      >
+        <div
+          class="font-bold"
+          data-testid="podcast-title"
+        >
+          My first podcast
+        </div>
+        <div
+          class="italic"
+          data-testid="podcast-author"
+        >
+          By
+           
+          Rookie
+        </div>
+      </div>
+      <div
+        class="my-3 mx-4"
+      >
+        <div
+          class="font-bold"
+        >
+          Description
+        </div>
+        <div
+          data-testid="podcast-description"
+        >
+          Our first 
+          <b>
+            podcast!
+          </b>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

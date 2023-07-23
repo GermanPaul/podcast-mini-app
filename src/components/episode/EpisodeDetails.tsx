@@ -8,8 +8,8 @@ interface EpisodeDetailsProps {
 const EpisodeDetails = ({ episodeDetails }: EpisodeDetailsProps) => {
   return <div className='px-4'>
     <div className='shadow-md p-3'>
-      <div className='font-bold text-2xl mb-2'>{episodeDetails.title}</div>
-      <div className='mb-4' dangerouslySetInnerHTML={{__html: episodeDetails.description}}></div>
+      <div data-testid='episode-title' className='font-bold text-2xl mb-2'>{episodeDetails.title}</div>
+      <div data-testid='episode-description' className='mb-4' dangerouslySetInnerHTML={{__html: episodeDetails.description}}></div>
       <audio className='w-full' src={episodeDetails.url} controls></audio>
     </div>
   </div>

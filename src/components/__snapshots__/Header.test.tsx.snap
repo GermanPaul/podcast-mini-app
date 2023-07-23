@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Header /> > render the component 1`] = `
+<body>
+  <div>
+    <nav
+      class="p-3 border-b border-b-gray-200 flex justify-between"
+    >
+      <a
+        class="text-2xl font-bold text-cyan-600"
+        href="/"
+      >
+        Podcaster
+      </a>
+    </nav>
+  </div>
+</body>
+`;

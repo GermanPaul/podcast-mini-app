@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<PodcastCard /> > render the component 1`] = `
+<body>
+  <div>
+    <a
+      class="w-80 text-center m-2 shadow-none hover:shadow-lg"
+      href="/podcast/1"
+    >
+      <div
+        class="block mx-auto rounded-full w-44"
+      >
+        <img
+          alt="My first podcast"
+          class="mx-auto rounded-full -mb-20 w-44 h-44"
+          loading="lazy"
+          src="https://image.provider/rookie/my-first-podcast.jpg"
+        />
+      </div>
+      <div
+        class="block border border-t-0 px-2 pt-24 pb-5"
+      >
+        <div
+          class="uppercase font-semibold"
+          data-testid="podcast-name"
+        >
+          My first podcast
+        </div>
+        <div
+          data-testid="podcast-author"
+        >
+          Rookie
+        </div>
+      </div>
+    </a>
+  </div>
+</body>
+`;

@@ -5,7 +5,7 @@ import { useI18n } from '@/hooks/useI18n'
 
 import { Link } from 'react-router-dom'
 
-const Home = () => {
+const Header = () => {
   const { t } = useI18n();
   const isLoading = useSelector((state: RootState) => state.podcastFeed.isLoading)
 
@@ -35,4 +35,4 @@ const Home = () => {
   </nav>
 }
 
-export default Home
+export default Header
