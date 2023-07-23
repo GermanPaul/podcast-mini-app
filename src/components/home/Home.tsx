@@ -2,10 +2,10 @@ import React, { useEffect, useState, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { useFetchPodcastFeed } from '@/hooks/api/useFetchPodcastFeed'
 import { setIsLoading } from '@/store/slices/podcast'
-import { useI18n } from '@/hooks/useI18n';
+import { useI18n } from '@/hooks/useI18n'
 
 import PodcastCard from '@/components/home/PodcastCard'
-import { PodcastFeed } from '@/types/podcastList';
+import { PodcastFeed } from '@/types/podcastList'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
@@ -20,7 +20,7 @@ const Home = () => {
   const [searchValue, setSearchValue] = useState('')
   const [filteredPodcasts, setFilteredPodcasts] = useState<PodcastFeed[]>([])
   const [matches, setMatches] = useState(0)
-  const searchInputRef = useRef<HTMLElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const handleSearchChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
@@ -48,15 +48,21 @@ const Home = () => {
     searchInputRef.current?.focus()
   }, [isLoading])
 
+  if (isError) {
+    return <div className='p-3 text-lg'>
+      Unable to fetch Top Podcasts list.
+    </div>
+  }
+
   if (isLoading) {
     return <div>
       <div className='flex justify-end p-4'>
-        <Skeleton width='20rem' height='2.5rem' />
+        <Skeleton width='20rem animate-pulse' height='2.5rem' />
       </div>
       <div className='flex flex-wrap justify-center p-4'>
         {
           [...Array(20)].map((_, index) => (
-            <Skeleton className='m-2' key={`skeleton-${index}`} width='20rem' height='15rem' />
+            <Skeleton className='m-2 animate-pulse' key={`skeleton-${index}`} width='20rem' height='15rem' />
           ))
         }
       </div>

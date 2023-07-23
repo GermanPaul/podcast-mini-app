@@ -22,6 +22,7 @@
     "@tanstack/query-sync-storage-persister": "^4.32.0",
     "@tanstack/react-query": "^4.32.0",
     "@tanstack/react-query-persist-client": "^4.32.0",
+    "fast-xml-parser": "^4.2.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intl": "^6.4.4",

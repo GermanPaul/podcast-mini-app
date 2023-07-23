@@ -1,5 +1,5 @@
-import { TopPodcasts } from '@/types/podcastFeedApi';
 import { useQuery } from '@tanstack/react-query';
+import { TopPodcasts } from '@/types/podcastFeedApi';
 import { FetchPodcastFeedInput, PodcastFeed } from '@/types/podcastList'
 
 const getPodcastsFeed = async ({limit, genre}: FetchPodcastFeedInput) => {
@@ -8,7 +8,7 @@ const getPodcastsFeed = async ({limit, genre}: FetchPodcastFeedInput) => {
     const apiUrl = import.meta.env.VITE_PODCASTS_API_URL
     const proxyUrl = import.meta.env.VITE_CORS_PROXY
 
-    const path = `/toppodcasts/limit=${limit}/genre=${genre}/json`
+    const path = `/us/rss/toppodcasts/limit=${limit}/genre=${genre}/json`
     let url: string
 
     if (developmentMode) {
@@ -18,7 +18,7 @@ const getPodcastsFeed = async ({limit, genre}: FetchPodcastFeedInput) => {
       url = proxyUrl ? `${proxyUrl}?${encodeURIComponent(targetUrl)}` : targetUrl
     }
 
-    const response = await fetch(`${url}/toppodcasts/limit=${limit}/genre=${genre}/json`)
+    const response = await fetch(url)
     return await response.json() as TopPodcasts 
   } catch {
     throw new Error('Unable to fetch Top Podcasts list.')
